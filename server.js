@@ -68,11 +68,28 @@ app.post('/mentions', function (req, res) {
 		date: req.body.date,
 		text: req.body.text,
 		service: req.body.service		
-	}
+	};
 	
 	mentions.push(newMention);
 
 	res.json(newMention);
+});
+
+var friends = [];
+app.get('/friends', function (req, res) {
+	res.json(friends);
+});
+
+app.post('/friends', function (req, res) {
+	var newFriend = {
+		name: req.body.name,
+		shoesize: req.body.shoesize
+	};
+	
+	friends.push(newFriend);
+
+	res.json(newFriend);
+
 });
 
 app.listen(9880);
